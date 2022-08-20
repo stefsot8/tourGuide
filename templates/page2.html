@@ -1,0 +1,67 @@
+{% block container %}
+    <body style="background-color:LightGray;">
+    <div class="top-pad">
+        <style>
+            table, th, td {
+                border: 1px solid darkred;
+            }
+
+            th, td {
+                padding: 10px 30px 20px 30px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #D6EEEE;
+            }
+        </style>
+        <table>
+            <th>
+                Name
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Borough
+            </th>
+            <th>
+                Neighborhood
+            </th>
+            <th>
+                Latitude
+            </th>
+            <th>
+                Longitude
+            </th>
+            {% for your_list_element in results %}
+                <tr>
+                    <td>
+                        {{ your_list_element[0] }}
+                    </td>
+                    <td>
+                        {{ your_list_element[1] }}
+                    </td>
+                    <td>
+                        {{ your_list_element[2] }}
+                    </td>
+                    <td>
+                        {{ your_list_element[3] }}
+                    </td>
+                    <td>
+                        {{ your_list_element[4] }}
+                    </td>
+                    <td>
+                        {{ your_list_element[5] }}
+                    </td>
+                    <td>
+                        {{ your_list_element[6] }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </body>
+{% endblock %}
