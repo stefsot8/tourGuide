@@ -44,14 +44,15 @@ class Neo4j:
                     loc2 = (lat2, lon2)
                     kms = hs.haversine(loc1, loc2)
                     dist = round(kms, 2)
-                    order2 = 'match (a),(b) where a.id="'+id1+'"and b.id="'+id2+'"create (a)-[r:Distance {name:'+str(dist)+'}]->(b)'
-                    db_connector.add_relationships(order2)
+                    if dist <= 5.00:
+                        order2 = 'match (a),(b) where a.id="'+id1+'"and b.id="'+id2+'"create (a)-[r:Distance {name:'+str(dist)+'}]->(b)'
+                        db_connector.add_relationships(order2)
                 else:
                     pass
 
 
 if __name__ == "__main__":
-    borough = 'Staten Island'   # insert manually borough name to split one huge process
+    borough = 'Bronx'   # insert manually borough name to split one huge process
     order = 'match (n) where n.locality="' + borough + '"return distinct n.id, n.latitude, n.longitude '
     db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
     db_connector.get_results(order)
