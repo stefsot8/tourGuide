@@ -44,6 +44,7 @@ class Neo4j:
     @staticmethod
     def db_results(tx, order):
         result = tx.run(order)
+        results.clear()
         with open('result.csv', 'w'):
             pass
         for node in result:

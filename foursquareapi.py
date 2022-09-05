@@ -36,7 +36,7 @@ if __name__ == '__main__':
     for i in range(len(neighborhoods)):
         neighborhood_latitude = neighborhoods.loc[i, 'Latitude']  # neighborhood latitude value
         neighborhood_longitude = neighborhoods.loc[i, 'Longitude']  # neighborhood longitude value
-        neighborhood_name = neighborhoods.loc[i, 'Neighborhood']  # neighborhood longitude value
+        neighborhood_name = neighborhoods.loc[i, 'Neighborhood']  # neighborhood name
         print(neighborhood_name, neighborhood_longitude, neighborhood_latitude)
         url = 'https://api.foursquare.com/v3/places/search?ll={},{}&radius=1000&limit=50'.format(
             neighborhood_latitude,
