@@ -24,6 +24,13 @@ def homepage():
 
 @app.route('/page2', methods=['GET', 'POST'])
 def page2():
+    order1 = 'CALL gds.graph.project("myGraph","Store","Distance",{relationshipProperties:"name"})'
+    order2 = 'CALL gds.pageRank.stream("myGraph") YIELD nodeId, score RETURN gds.util.asNode(nodeId).name AS name, ' \
+             'score ORDER BY score DESC, name ASC '
+    db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
+    # db_connector.centrality(order1)
+    db_connector.centrality(order2)
+    db_connector.close()
     return render_template('page2.html')
 
 
@@ -41,6 +48,10 @@ class Neo4j:
         with self.driver.session() as session:
             session.write_transaction(self.db_results, order)
 
+    def centrality(self, order):
+        with self.driver.session() as session:
+            session.write_transaction(self.cent_results, order)
+
     @staticmethod
     def db_results(tx, order):
         result = tx.run(order)
@@ -53,6 +64,12 @@ class Neo4j:
             with open('result.csv', 'a') as file:
                 writer = csv.writer(file)
                 writer.writerow(data)
+
+    @staticmethod
+    def cent_results(tx, order):
+        central = tx.run(order)
+        for line in central:
+            print(line['name'])
 
 
 if __name__ == "__main__":
