@@ -6,6 +6,7 @@ from neo4j import GraphDatabase
 
 app = Flask(__name__)
 results = []
+cent_results = []
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -31,7 +32,7 @@ def page2():
     # db_connector.centrality(order1)
     db_connector.centrality(order2)
     db_connector.close()
-    return render_template('page2.html')
+    return render_template('centrality.html', cent_results=cent_results)
 
 
 class Neo4j:
@@ -50,7 +51,7 @@ class Neo4j:
 
     def centrality(self, order):
         with self.driver.session() as session:
-            session.write_transaction(self.cent_results, order)
+            session.write_transaction(self.centrality_results, order)
 
     @staticmethod
     def db_results(tx, order):
@@ -66,10 +67,11 @@ class Neo4j:
                 writer.writerow(data)
 
     @staticmethod
-    def cent_results(tx, order):
-        central = tx.run(order)
-        for line in central:
-            print(line['name'])
+    def centrality_results(tx, order):
+        cent_result = tx.run(order)
+        cent_results.clear()
+        for line in cent_result:
+            cent_results.append(line)
 
 
 if __name__ == "__main__":
