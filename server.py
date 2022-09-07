@@ -3,10 +3,10 @@ from flask import Flask, request
 from flask import render_template
 from neo4j import GraphDatabase
 
-
 app = Flask(__name__)
 results = []
 cent_results = []
+sim_results = []
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -23,10 +23,10 @@ def homepage():
         return render_template('welcome.html')
 
 
-@app.route('/page2', methods=['GET', 'POST'])
-def page2():
-    order1 = 'CALL gds.graph.project("myGraph","Store","Distance",{relationshipProperties:"name"})'
-    order2 = 'CALL gds.pageRank.stream("myGraph") YIELD nodeId, score RETURN gds.util.asNode(nodeId).name AS name,' \
+@app.route('/centrality', methods=['GET', 'POST'])
+def centralitypage():
+    order1 = 'CALL gds.graph.project("myCentralityGraph","Store","Distance",{relationshipProperties:"name"})'
+    order2 = 'CALL gds.pageRank.stream("myCentralityGraph") YIELD nodeId, score RETURN gds.util.asNode(nodeId).name AS name,' \
              'gds.util.asNode(nodeId).type as type,gds.util.asNode(nodeId).address as address,gds.util.asNode(' \
              'nodeId).neighborhood as neighborhood,score ORDER BY score DESC, name ASC limit 10'
     db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
@@ -37,6 +37,24 @@ def page2():
     db_connector.centrality(order2)
     db_connector.close()
     return render_template('centrality.html', cent_results=cent_results)
+
+
+@app.route('/similarity', methods=['GET', 'POST'])
+def similaritypage():
+    order1 = 'CALL gds.graph.project("mySimilarityGraph","Store",{Distance: {type: "Distance",properties: {strength:{' \
+             'property:"name",defaultValue: 1.0}}}}); '
+    order2 = 'CALL gds.nodeSimilarity.stream("mySimilarityGraph") YIELD node1, node2, similarity RETURN ' \
+             'gds.util.asNode(node1).name AS Store1,gds.util.asNode(node1).address AS Address1, gds.util.asNode(' \
+             'node2).name AS Store2,gds.util.asNode(node2).address AS Address2,gds.util.asNode(node1).type AS Type,' \
+             'similarity ORDER BY similarity DESCENDING, Store1, Store2 limit 60 '
+    db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
+    try:
+        db_connector.similarity(order1)
+    except:
+        pass
+    db_connector.similarity(order2)
+    db_connector.close()
+    return render_template('similarity.html', sim_results=sim_results)
 
 
 class Neo4j:
@@ -57,6 +75,10 @@ class Neo4j:
         with self.driver.session() as session:
             session.write_transaction(self.centrality_results, order)
 
+    def similarity(self, order):
+        with self.driver.session() as session:
+            session.write_transaction(self.similarity_results, order)
+
     @staticmethod
     def db_results(tx, order):
         result = tx.run(order)
@@ -76,6 +98,16 @@ class Neo4j:
         cent_results.clear()
         for line in cent_result:
             cent_results.append(line)
+
+    @staticmethod
+    def similarity_results(tx, order):
+        sim_result = tx.run(order)
+        sim_results.clear()
+        i = 1
+        for line in sim_result:
+            if i % 2 == 0:  # remove same duplicate results
+                sim_results.append(line)
+            i += 1
 
 
 if __name__ == "__main__":

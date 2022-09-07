@@ -5,10 +5,10 @@
         form{text-align: center}
     </style>
     <meta charset="UTF-8">
-    <title>Welcome Page</title>
+    <title>Home Page</title>
 </head>
 <body style="background-color:LightGray;">
-<h1 style="text-align:center;">Welcome to the HomePage!</h1>
+<h1 style="text-align:center;">Welcome to your Guide!</h1>
 <form method="POST">
     <label for="borough">Choose your borough:</label>
     <select name="boroughs" id="borough" required>
@@ -24,7 +24,11 @@
 </form>
 <br><br>
 <form method="POST">
-<input type="submit" value="View Top-grossing Stores" formaction="/page2">
+<input type="submit" value="View Top-grossing Stores" formaction="/centrality">
+</form>
+<br><br>
+<form method="POST">
+<input type="submit" value="Find Similar Stores" formaction="/similarity">
 </form>
 </body>
 </html>
