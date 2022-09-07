@@ -26,10 +26,14 @@ def homepage():
 @app.route('/page2', methods=['GET', 'POST'])
 def page2():
     order1 = 'CALL gds.graph.project("myGraph","Store","Distance",{relationshipProperties:"name"})'
-    order2 = 'CALL gds.pageRank.stream("myGraph") YIELD nodeId, score RETURN gds.util.asNode(nodeId).name AS name, ' \
-             'score ORDER BY score DESC, name ASC '
+    order2 = 'CALL gds.pageRank.stream("myGraph") YIELD nodeId, score RETURN gds.util.asNode(nodeId).name AS name,' \
+             'gds.util.asNode(nodeId).type as type,gds.util.asNode(nodeId).address as address,gds.util.asNode(' \
+             'nodeId).neighborhood as neighborhood,score ORDER BY score DESC, name ASC limit 10'
     db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
-    # db_connector.centrality(order1)
+    try:
+        db_connector.centrality(order1)
+    except:
+        pass
     db_connector.centrality(order2)
     db_connector.close()
     return render_template('centrality.html', cent_results=cent_results)

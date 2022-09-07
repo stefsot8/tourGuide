@@ -19,6 +19,15 @@
                 Name
             </th>
             <th>
+                Type
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Neighborhood
+            </th>
+            <th>
                 Centrality Value
             </th>
             {% for your_list_element in cent_results %}
@@ -28,6 +37,15 @@
                     </td>
                     <td>
                         {{ your_list_element[1] }}
+                    </td>
+                    <td>
+                        {{ your_list_element[2] }}
+                    </td>
+                    <td>
+                        {{ your_list_element[3] }}
+                    </td>
+                    <td>
+                        {{ your_list_element[4] }}
                     </td>
                 </tr>
             {% endfor %}
