@@ -1,7 +1,11 @@
 import csv
+import webbrowser
+
 from flask import Flask, request
 from flask import render_template
 from neo4j import GraphDatabase
+import folium
+from geopy.geocoders import Nominatim
 
 app = Flask(__name__)
 results = []
@@ -18,6 +22,34 @@ def homepage():
         db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
         db_connector.print_results(order)
         db_connector.close()
+
+        # mapview
+        address = 'New York City, NY'
+        geolocator = Nominatim(user_agent="ny_explorer")
+        location = geolocator.geocode(address)
+        latitude = location.latitude
+        longitude = location.longitude
+        print('The geograpical coordinate of New York City are {}, {}.'.format(latitude, longitude))
+        # create map of New York using latitude and longitude values
+        map_newyork = folium.Map(location=[latitude, longitude], zoom_start=10)
+        # add markers to map
+        with open("result.csv", 'r') as file:
+            csvreader = csv.reader(file)
+            for row in csvreader:
+                label = '{}, {}, {}'.format(row[0], row[1], row[2])
+                label = folium.Popup(label, parse_html=True)
+                folium.CircleMarker(
+                    [row[5], row[6]],
+                    radius=5,
+                    popup=label,
+                    color='blue',
+                    fill=True,
+                    fill_color='#3186cc',
+                    fill_opacity=0.7,
+                    parse_html=False).add_to(map_newyork)
+        output_file = "map.html"
+        map_newyork.save(output_file)
+        webbrowser.open(output_file, new=2)
         return render_template("page2.html", results=results)
     else:
         return render_template('welcome.html')
