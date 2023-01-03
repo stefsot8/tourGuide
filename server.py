@@ -11,6 +11,7 @@ app = Flask(__name__)
 results = []
 cent_results = []
 sim_results = []
+centrality = []
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -31,7 +32,7 @@ def homepage():
         longitude = location.longitude
         print('The geograpical coordinate of New York City are {}, {}.'.format(latitude, longitude))
         # create map of New York using latitude and longitude values
-        map_newyork = folium.Map(location=[latitude, longitude], zoom_start=10)
+        map_newyork = folium.Map(location=[latitude, longitude], zoom_start=11)
         # add markers to map
         with open("result.csv", 'r') as file:
             csvreader = csv.reader(file)
@@ -42,7 +43,7 @@ def homepage():
                     [row[5], row[6]],
                     radius=5,
                     popup=label,
-                    color='blue',
+                    color='red',
                     fill=True,
                     fill_color='#3186cc',
                     fill_opacity=0.7,
@@ -60,7 +61,7 @@ def centralitypage():
     order1 = 'CALL gds.graph.project("myCentralityGraph","Store","Distance",{relationshipProperties:"name"})'
     order2 = 'CALL gds.pageRank.stream("myCentralityGraph") YIELD nodeId, score RETURN gds.util.asNode(nodeId).name AS name,' \
              'gds.util.asNode(nodeId).type as type,gds.util.asNode(nodeId).address as address,gds.util.asNode(' \
-             'nodeId).neighborhood as neighborhood,score ORDER BY score DESC, name ASC limit 10'
+             'nodeId).neighborhood as neighborhood,gds.util.asNode(nodeId).locality as locality,score ORDER BY score DESC, name ASC limit 500'
     db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
     try:
         db_connector.centrality(order1)
@@ -68,7 +69,12 @@ def centralitypage():
         pass
     db_connector.centrality(order2)
     db_connector.close()
-    return render_template('centrality.html', cent_results=cent_results)
+    borough = (request.form['boroughs'])
+    centrality.clear()
+    for row in cent_results:
+        if row[4] == borough:
+            centrality.append(row)
+    return render_template('centrality.html', cent_results=centrality)
 
 
 @app.route('/similarity', methods=['GET', 'POST'])

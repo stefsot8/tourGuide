@@ -28,6 +28,9 @@
                 Neighborhood
             </th>
             <th>
+                Locality
+            </th>
+            <th>
                 Centrality Value
             </th>
             {% for your_list_element in cent_results %}
@@ -46,6 +49,9 @@
                     </td>
                     <td>
                         {{ your_list_element[4] }}
+                    </td>
+                    <td>
+                        {{ your_list_element[5] }}
                     </td>
                 </tr>
             {% endfor %}
