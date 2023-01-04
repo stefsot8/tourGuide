@@ -3,11 +3,14 @@
 <head>
     <style>
         form{text-align: center}
+        body{background-image:url({{ url_for('static', filename='NYC.jpg')}});
+            background-repeat: no-repeat;
+            background-size: 100%;}
     </style>
     <meta charset="UTF-8">
     <title>Home Page</title>
 </head>
-<body style="background-color:LightGray;">
+<body>
 <h1 style="text-align:center;">Welcome to your Guide!</h1>
 <form method="POST">
     <label for="borough">Choose your borough:</label>
