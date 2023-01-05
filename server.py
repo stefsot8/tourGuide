@@ -12,6 +12,7 @@ results = []
 cent_results = []
 sim_results = []
 centrality = []
+similarity = []
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -59,9 +60,11 @@ def homepage():
 @app.route('/centrality', methods=['GET', 'POST'])
 def centralitypage():
     order1 = 'CALL gds.graph.project("myCentralityGraph","Store","Distance",{relationshipProperties:"name"})'
-    order2 = 'CALL gds.pageRank.stream("myCentralityGraph") YIELD nodeId, score RETURN gds.util.asNode(nodeId).name AS name,' \
-             'gds.util.asNode(nodeId).type as type,gds.util.asNode(nodeId).address as address,gds.util.asNode(' \
-             'nodeId).neighborhood as neighborhood,gds.util.asNode(nodeId).locality as locality,score ORDER BY score DESC, name ASC limit 500'
+    order2 = 'CALL gds.pageRank.stream("myCentralityGraph") YIELD nodeId, score RETURN gds.util.asNode(nodeId).name ' \
+             'AS name,gds.util.asNode(nodeId).type as type,gds.util.asNode(nodeId).address as address,' \
+             'gds.util.asNode(nodeId).neighborhood as neighborhood,gds.util.asNode(nodeId).locality as locality,' \
+             'gds.util.asNode(nodeId).latitude as latitude,gds.util.asNode(nodeId).longitude as longitude,score ORDER ' \
+             'BY score DESC, name ASC limit 500'
     db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
     try:
         db_connector.centrality(order1)
@@ -74,6 +77,28 @@ def centralitypage():
     for row in cent_results:
         if row[4] == borough:
             centrality.append(row)
+    # mapview
+    address = 'New York City, NY'
+    geolocator = Nominatim(user_agent="ny_explorer")
+    location = geolocator.geocode(address)
+    latitude = location.latitude
+    longitude = location.longitude
+    map_newyork = folium.Map(location=[latitude, longitude], zoom_start=11)
+    for row in centrality:
+        label = '{}, {}, {}'.format(row[0], row[1], row[2])
+        label = folium.Popup(label, parse_html=True)
+        folium.CircleMarker(
+            [row[5], row[6]],
+            radius=7,
+            popup=label,
+            color='red',
+            fill=True,
+            fill_color='#3186cc',
+            fill_opacity=0.7,
+            parse_html=False).add_to(map_newyork)
+    output_file = "map.html"
+    map_newyork.save(output_file)
+    webbrowser.open(output_file, new=2)
     return render_template('centrality.html', cent_results=centrality)
 
 
@@ -84,7 +109,7 @@ def similaritypage():
     order2 = 'CALL gds.nodeSimilarity.stream("mySimilarityGraph") YIELD node1, node2, similarity RETURN ' \
              'gds.util.asNode(node1).name AS Store1,gds.util.asNode(node1).address AS Address1, gds.util.asNode(' \
              'node2).name AS Store2,gds.util.asNode(node2).address AS Address2,gds.util.asNode(node1).type AS Type,' \
-             'similarity ORDER BY similarity DESCENDING, Store1, Store2 limit 60 '
+             'similarity,gds.util.asNode(node1).locality AS Locality ORDER BY similarity DESCENDING, Store1, Store2 limit 500 '
     db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
     try:
         db_connector.similarity(order1)
@@ -92,7 +117,12 @@ def similaritypage():
         pass
     db_connector.similarity(order2)
     db_connector.close()
-    return render_template('similarity.html', sim_results=sim_results)
+    borough = (request.form['boroughs'])
+    similarity.clear()
+    for row in sim_results:
+        if row[6] == borough:
+            similarity.append(row)
+    return render_template('similarity.html', sim_results=similarity)
 
 
 class Neo4j:
