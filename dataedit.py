@@ -63,6 +63,6 @@ if __name__ == "__main__":
             fill_opacity=0.7,
             parse_html=False).add_to(map_newyork)
 
-    output_file = "map.html"
+    output_file = "Map View.html"
     map_newyork.save(output_file)
     webbrowser.open(output_file, new=2)

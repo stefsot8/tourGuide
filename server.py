@@ -49,7 +49,7 @@ def homepage():
                     fill_color='#3186cc',
                     fill_opacity=0.7,
                     parse_html=False).add_to(map_newyork)
-        output_file = "map.html"
+        output_file = "Map View.html"
         map_newyork.save(output_file)
         webbrowser.open(output_file, new=2)
         return render_template("page2.html", results=results)
@@ -84,7 +84,7 @@ def centralitypage():
     latitude = location.latitude
     longitude = location.longitude
     map_newyork = folium.Map(location=[latitude, longitude], zoom_start=11)
-    for row in centrality:
+    for row in centrality[:10]:
         label = '{}, {}, {}'.format(row[0], row[1], row[2])
         label = folium.Popup(label, parse_html=True)
         folium.CircleMarker(
@@ -96,10 +96,10 @@ def centralitypage():
             fill_color='#3186cc',
             fill_opacity=0.7,
             parse_html=False).add_to(map_newyork)
-    output_file = "map.html"
+    output_file = "Map View.html"
     map_newyork.save(output_file)
     webbrowser.open(output_file, new=2)
-    return render_template('centrality.html', cent_results=centrality)
+    return render_template('centrality.html', cent_results=centrality[:10])
 
 
 @app.route('/similarity', methods=['GET', 'POST'])
@@ -109,7 +109,7 @@ def similaritypage():
     order2 = 'CALL gds.nodeSimilarity.stream("mySimilarityGraph") YIELD node1, node2, similarity RETURN ' \
              'gds.util.asNode(node1).name AS Store1,gds.util.asNode(node1).address AS Address1, gds.util.asNode(' \
              'node2).name AS Store2,gds.util.asNode(node2).address AS Address2,gds.util.asNode(node1).type AS Type,' \
-             'similarity,gds.util.asNode(node1).locality AS Locality ORDER BY similarity DESCENDING, Store1, Store2 limit 500 '
+             'similarity,gds.util.asNode(node1).locality AS Locality ORDER BY similarity DESCENDING, Store1, Store2 limit 1000 '
     db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
     try:
         db_connector.similarity(order1)
@@ -122,7 +122,7 @@ def similaritypage():
     for row in sim_results:
         if row[6] == borough:
             similarity.append(row)
-    return render_template('similarity.html', sim_results=similarity)
+    return render_template('similarity.html', sim_results=similarity[:10])
 
 
 class Neo4j:
