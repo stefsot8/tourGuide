@@ -18,11 +18,11 @@ class Neo4j:
     def _create_and_return_greeting(tx):
         result = tx.run("CREATE (a:Store)"
                         "SET a.name = $store_name, a.id = $store_id, a.type = $store_type,a.latitude = "
-                        "$store_latitude,a.longitude = $store_longitude,a.address = $store_address,a.locality = "
-                        "$store_locality,a.neighborhood = $store_neighborhood", store_name=store_name,
+                        "$store_latitude,a.longitude = $store_longitude,a.address = $store_address,a.borough = "
+                        "$store_borough,a.neighborhood = $store_neighborhood", store_name=store_name,
                         store_id=store_id,
                         store_type=store_type, store_latitude=store_latitude, store_longitude=store_longitude,
-                        store_address=store_address, store_locality=store_locality,
+                        store_address=store_address, store_borough=store_borough,
                         store_neighborhood=neighborhood_name)
 
 
@@ -37,7 +37,8 @@ if __name__ == '__main__':
         neighborhood_latitude = neighborhoods.loc[i, 'Latitude']  # neighborhood latitude value
         neighborhood_longitude = neighborhoods.loc[i, 'Longitude']  # neighborhood longitude value
         neighborhood_name = neighborhoods.loc[i, 'Neighborhood']  # neighborhood name
-        print(neighborhood_name, neighborhood_longitude, neighborhood_latitude)
+        borough = neighborhoods.loc[i, 'Borough']     # borough
+        print(borough, neighborhood_name, neighborhood_longitude, neighborhood_latitude)
         url = 'https://api.foursquare.com/v3/places/search?ll={},{}&radius=1000&limit=50'.format(
             neighborhood_latitude,
             neighborhood_longitude)
@@ -80,10 +81,10 @@ if __name__ == '__main__':
             else:
                 store_address = "missing"
             if "locality" in useful_data[p]['location']:
-                store_locality = useful_data[p]['location']['locality']
+                store_borough = borough
             else:
-                store_locality = "missing"
+                store_borough = borough
             p += 1
-            greeter = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
+            greeter = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
             greeter.print_greeting()
             greeter.close()
