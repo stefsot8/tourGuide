@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_288a919bce6120129f79c06da3116c4e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_288a919bce6120129f79c06da3116c4e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_288a919bce6120129f79c06da3116c4e = L.map(
+                "map_288a919bce6120129f79c06da3116c4e",
+                {
+                    center: [40.7127281, -74.0060152],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9729036cbf2db3958775cc703a856d2b = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_288a919bce6120129f79c06da3116c4e);
+        
+    
+            var circle_marker_e21f93a697acc04ad496d1c1a24069af = L.circleMarker(
+                [40.691045, -73.98303],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_288a919bce6120129f79c06da3116c4e);
+        
+    
+        var popup_fb7c22c18f1d807d00d02ccf13b7c28c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8d7b8fb3c8371c9daead29c49578ed22 = $(`<div id="html_8d7b8fb3c8371c9daead29c49578ed22" style="width: 100.0%; height: 100.0%;">A Taste of Katz&#39;s, Deli, 445 Albee Sq, Brooklyn, NY 11201</div>`)[0];
+                popup_fb7c22c18f1d807d00d02ccf13b7c28c.setContent(html_8d7b8fb3c8371c9daead29c49578ed22);
+            
+        
+
+        circle_marker_e21f93a697acc04ad496d1c1a24069af.bindPopup(popup_fb7c22c18f1d807d00d02ccf13b7c28c)
+        ;
+
+        
+    
+    
+            var circle_marker_c455aea47e9aad6c1f6045f015cd1b71 = L.circleMarker(
+                [40.567606, -73.892937],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_288a919bce6120129f79c06da3116c4e);
+        
+    
+        var popup_064bca0ebaa5b2525feb567ffd17922a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4c23ecdc989a3e3cb9f24a03671558df = $(`<div id="html_4c23ecdc989a3e3cb9f24a03671558df" style="width: 100.0%; height: 100.0%;">Roxbury Beach, Beach, Brooklyn, NY 11235</div>`)[0];
+                popup_064bca0ebaa5b2525feb567ffd17922a.setContent(html_4c23ecdc989a3e3cb9f24a03671558df);
+            
+        
+
+        circle_marker_c455aea47e9aad6c1f6045f015cd1b71.bindPopup(popup_064bca0ebaa5b2525feb567ffd17922a)
+        ;
+
+        
+    
+    
+            var circle_marker_6c066ee0035dd5ff14de04abc2b197b5 = L.circleMarker(
+                [40.647091, -73.957952],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_288a919bce6120129f79c06da3116c4e);
+        
+    
+        var popup_349fbb14365d0fb0b7bc92e45a95714e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_afc9b14b5a4e94c8b7389f0ee8f0406f = $(`<div id="html_afc9b14b5a4e94c8b7389f0ee8f0406f" style="width: 100.0%; height: 100.0%;">Golden Krust Caribbean Bakery and Grill, Caribbean Restaurant, 998 Flatbush Ave, Brooklyn, NY 11226</div>`)[0];
+                popup_349fbb14365d0fb0b7bc92e45a95714e.setContent(html_afc9b14b5a4e94c8b7389f0ee8f0406f);
+            
+        
+
+        circle_marker_6c066ee0035dd5ff14de04abc2b197b5.bindPopup(popup_349fbb14365d0fb0b7bc92e45a95714e)
+        ;
+
+        
+    
+    
+            var circle_marker_ad521307a000728ea73f8eb4ba489bf8 = L.circleMarker(
+                [40.630925, -73.895249],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_288a919bce6120129f79c06da3116c4e);
+        
+    
+        var popup_9f8cccfd7e7555b99605a57ba2728d38 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a0f9ab70daf3f36b63e8fd4af8ff9ebe = $(`<div id="html_a0f9ab70daf3f36b63e8fd4af8ff9ebe" style="width: 100.0%; height: 100.0%;">Remsen Ave &amp; Seaview, Other Great Outdoors, Brooklyn, NY 11236</div>`)[0];
+                popup_9f8cccfd7e7555b99605a57ba2728d38.setContent(html_a0f9ab70daf3f36b63e8fd4af8ff9ebe);
+            
+        
+
+        circle_marker_ad521307a000728ea73f8eb4ba489bf8.bindPopup(popup_9f8cccfd7e7555b99605a57ba2728d38)
+        ;
+
+        
+    
+    
+            var circle_marker_a3fed6a782805dfec2c2b30409d4eefa = L.circleMarker(
+                [40.61594, -73.913984],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_288a919bce6120129f79c06da3116c4e);
+        
+    
+        var popup_d6352336ccb67b1fb0e0d60f254e9aed = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bbbcac12581218fe4170b92a97c1f312 = $(`<div id="html_bbbcac12581218fe4170b92a97c1f312" style="width: 100.0%; height: 100.0%;">Bolla Market, Deli, Brooklyn, NY 11234</div>`)[0];
+                popup_d6352336ccb67b1fb0e0d60f254e9aed.setContent(html_bbbcac12581218fe4170b92a97c1f312);
+            
+        
+
+        circle_marker_a3fed6a782805dfec2c2b30409d4eefa.bindPopup(popup_d6352336ccb67b1fb0e0d60f254e9aed)
+        ;
+
+        
+    
+    
+            var circle_marker_dbade52afefd66032a3f7bf3530e88a5 = L.circleMarker(
+                [40.683317, -73.905007],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_288a919bce6120129f79c06da3116c4e);
+        
+    
+        var popup_d79e1eb7a738ca5507bfd49d0e403070 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4122121091b7d184a36506e153861c30 = $(`<div id="html_4122121091b7d184a36506e153861c30" style="width: 100.0%; height: 100.0%;">Rudd Playground, Playground, Brooklyn, NY 11207</div>`)[0];
+                popup_d79e1eb7a738ca5507bfd49d0e403070.setContent(html_4122121091b7d184a36506e153861c30);
+            
+        
+
+        circle_marker_dbade52afefd66032a3f7bf3530e88a5.bindPopup(popup_d79e1eb7a738ca5507bfd49d0e403070)
+        ;
+
+        
+    
+    
+            var circle_marker_5722c2b27f2448d13164c29450978ed0 = L.circleMarker(
+                [40.583764, -73.949332],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_288a919bce6120129f79c06da3116c4e);
+        
+    
+        var popup_cc67990e5897d1bf29844194bae0674b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b460ce4c9b70615109d160a1696e1d69 = $(`<div id="html_b460ce4c9b70615109d160a1696e1d69" style="width: 100.0%; height: 100.0%;">Masal Cafe, Café, 1901 Emmons Ave, Brooklyn, NY 11235</div>`)[0];
+                popup_cc67990e5897d1bf29844194bae0674b.setContent(html_b460ce4c9b70615109d160a1696e1d69);
+            
+        
+
+        circle_marker_5722c2b27f2448d13164c29450978ed0.bindPopup(popup_cc67990e5897d1bf29844194bae0674b)
+        ;
+
+        
+    
+    
+            var circle_marker_f7d46a7654e2170f195701d402fd66c0 = L.circleMarker(
+                [40.583994, -73.946773],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_288a919bce6120129f79c06da3116c4e);
+        
+    
+        var popup_0eb49060fc80c4de3febf90cd362e860 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_294edcb6809314d657917a0c6cff1b19 = $(`<div id="html_294edcb6809314d657917a0c6cff1b19" style="width: 100.0%; height: 100.0%;">Yogurt City, Frozen Yogurt Shop, 2027 Emmons Ave, Brooklyn, NY 11235</div>`)[0];
+                popup_0eb49060fc80c4de3febf90cd362e860.setContent(html_294edcb6809314d657917a0c6cff1b19);
+            
+        
+
+        circle_marker_f7d46a7654e2170f195701d402fd66c0.bindPopup(popup_0eb49060fc80c4de3febf90cd362e860)
+        ;
+
+        
+    
+    
+            var circle_marker_9593b8acf64e8d0f66ec576f7185a65d = L.circleMarker(
+                [40.70386, -73.991647],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_288a919bce6120129f79c06da3116c4e);
+        
+    
+        var popup_f5cbc4096aaa191f441e41fcee3bf156 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_61d34c05c3691587bc33a04c7d477bad = $(`<div id="html_61d34c05c3691587bc33a04c7d477bad" style="width: 100.0%; height: 100.0%;">The Rooftop, Roof Deck, Brooklyn, NY 11201</div>`)[0];
+                popup_f5cbc4096aaa191f441e41fcee3bf156.setContent(html_61d34c05c3691587bc33a04c7d477bad);
+            
+        
+
+        circle_marker_9593b8acf64e8d0f66ec576f7185a65d.bindPopup(popup_f5cbc4096aaa191f441e41fcee3bf156)
+        ;
+
+        
+    
+    
+            var circle_marker_86e87f6443f4cab0ba8300407eadb481 = L.circleMarker(
+                [40.641825, -73.963393],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_288a919bce6120129f79c06da3116c4e);
+        
+    
+        var popup_1eee8fdc5437e86993f2ccd44d97a9ac = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a841951297236a94abda9379363aea80 = $(`<div id="html_a841951297236a94abda9379363aea80" style="width: 100.0%; height: 100.0%;">Cafe Madeline, Coffee Shop, 1603 Cortelyou Rd (at E 16th St), Brooklyn, NY</div>`)[0];
+                popup_1eee8fdc5437e86993f2ccd44d97a9ac.setContent(html_a841951297236a94abda9379363aea80);
+            
+        
+
+        circle_marker_86e87f6443f4cab0ba8300407eadb481.bindPopup(popup_1eee8fdc5437e86993f2ccd44d97a9ac)
+        ;
+
+        
+    
+</script>
+</html>
