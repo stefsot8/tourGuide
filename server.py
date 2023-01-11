@@ -57,6 +57,45 @@ def homepage():
         return render_template('welcome.html')
 
 
+@app.route('/search', methods=['GET', 'POST'])
+def searchpage():
+    if request.method == 'POST':
+        storeName = request.form['storeName']
+        order = 'match (n) where n.name="' + storeName + '"return distinct n.name, n.type,n.address, n.locality, ' \
+                                                           'n.neighborhood, n.latitude, n.longitude '
+        db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
+        db_connector.print_results(order)
+        db_connector.close()
+
+        # mapview
+        address = 'New York City, NY'
+        geolocator = Nominatim(user_agent="ny_explorer")
+        location = geolocator.geocode(address)
+        latitude = location.latitude
+        longitude = location.longitude
+        print('The geograpical coordinate of New York City are {}, {}.'.format(latitude, longitude))
+        # create map of New York using latitude and longitude values
+        map_newyork = folium.Map(location=[latitude, longitude], zoom_start=11)
+        # add markers to map
+        with open("result.csv", 'r') as file:
+            csvreader = csv.reader(file)
+            for row in csvreader:
+                label = '{}, {}, {}'.format(row[0], row[1], row[2])
+                label = folium.Popup(label, parse_html=True)
+                folium.CircleMarker(
+                    [row[5], row[6]],
+                    radius=5,
+                    popup=label,
+                    color='red',
+                    fill=True,
+                    fill_color='#3186cc',
+                    fill_opacity=0.7,
+                    parse_html=False).add_to(map_newyork)
+        output_file = "Map View.html"
+        map_newyork.save(output_file)
+        webbrowser.open(output_file, new=2)
+        return render_template("page2.html", results=results)
+
 @app.route('/centrality', methods=['GET', 'POST'])
 def centralitypage():
     order1 = 'CALL gds.graph.project("myCentralityGraph","Store","Distance",{relationshipProperties:"name"})'
