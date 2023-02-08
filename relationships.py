@@ -52,7 +52,7 @@ class Neo4j:
 
 
 if __name__ == "__main__":
-    borough = 'Brooklyn'   # insert manually borough name to split one huge process
+    borough = 'Queens'   # insert manually borough name to split one huge process
     order = 'match (n) where n.borough="' + borough + '"return distinct n.id, n.latitude, n.longitude '
     db_connector = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
     db_connector.get_results(order)

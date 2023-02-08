@@ -1,10 +1,50 @@
-Shake Shack,Burger Joint,"344 Baychester Ave (Baychester Ave), Bronx, NY 10475",Bronx,Baychester,40.867258,-73.830716
-Shake Shack,Burger Joint,"600 3rd Ave (at E 40th St), New York, NY 10016",Manhattan,Tudor City,40.749435,-73.975838
-Shake Shack,Burger Joint,"2957 Broadway (W 116th Street), New York, NY 10025",Manhattan,Morningside Heights,40.807875,-73.964342
-Shake Shack,Burger Joint,"215 Murray St (btwn West St & North End Ave), New York, NY 10282",Manhattan,Battery Park City,40.715146,-74.014918
-Shake Shack,Burger Joint,"409 Fulton St (at Boerum Pl), Brooklyn, NY 11201",Brooklyn,Downtown,40.692115,-73.988704
-Shake Shack,Burger Joint,"154 E 86th St (btwn Lexington & 3rd Ave), New York, NY 10028",Manhattan,Carnegie Hill,40.779081,-73.95501
-Shake Shack,Burger Joint,"1333 Broadway (at W 36th St), New York, NY 10018",Manhattan,Midtown South,40.751214,-73.987919
-Shake Shack,Burger Joint,"2 E 23rd St (Madison Ave & E 23rd St), New York, NY 10010",Manhattan,Flatiron,40.740969,-73.987691
-Shake Shack,Burger Joint,"7126 Austin St (btwn Continental Ave & 71st Rd), Queens, NY 11375",Queens,Forest Hills Gardens,40.719691,-73.843827
-Shake Shack,Burger Joint,"1 Old Fulton St (Water Street), Brooklyn, NY 11201",Brooklyn,Fulton Ferry,40.702987,-73.994013
+Subway,Deli,"5549 Broadway, Bronx, NY 10463",Manhattan,Marble Hill,40.878639,-73.905205
+Subway,Deli,"3422 Jerome Ave, Bronx, NY 10467",Bronx,Norwood,40.881118,-73.882743
+Subway,Deli,"311 E 204th St, Bronx, NY 10467",Bronx,Norwood,40.872808,-73.878144
+Subway,Deli,"2052 Jerome Ave (at Burnside Ave.), Bronx, NY 10453",Bronx,Mount Hope,40.853958,-73.907042
+Subway,Deli,"2026 Boston Rd (Tremont Avenue), Bronx, NY 10460",Bronx,West Farms,40.84069,-73.879233
+Subway,Deli,"3044 3rd Ave, Bronx, NY 10451",Bronx,Concourse Village,40.820264,-73.912683
+Subway,Deli,"3209 3rd Ave, Bronx, NY 10451",Bronx,Concourse Village,40.823264,-73.909471
+Subway,Deli,"839 Prospect Ave, Bronx, NY 10459",Bronx,Morrisania,40.820011,-73.901739
+Subway,Deli,"1024 Longwood Ave (Southern Boulevard), Bronx, NY 10459",Bronx,Longwood,40.816311,-73.896658
+Subway,Deli,"1448 East Ave, Bronx, NY 10462",Bronx,Parkchester,40.836109,-73.860163
+Subway,Deli,"3714 E Tremont Ave (Dill Pl.), Bronx, NY 10465",Bronx,Schuylerville,40.826813,-73.822642
+Subway,Deli,"980 E 233rd St, Bronx, NY 10466",Bronx,Wakefield,40.890473,-73.849142
+Subway,Deli,"1613 Oriental Blvd (Norfolk And Oxford St), Brooklyn, NY 11235",Brooklyn,Manhattan Beach,40.578679,-73.93817
+Subway,Deli,"400 Myrtle Ave (Vanderbilt ave), Brooklyn, NY 11205",Brooklyn,Clinton Hill,40.692956,-73.970148
+Subway,Deli,"2011 Church Ave (Ocean Ave), Brooklyn, NY 11226",Brooklyn,Prospect Park South,40.650311,-73.960473
+Subway,Deli,"10811 Corona Ave, Corona, NY 11368",Corona,Corona,40.743095,-73.854411
+Subway,Deli,"11814 Jamaica Ave (at Lefferts Blvd.), Richmond Hill, NY 11418",Richmond Hill,Richmond Hill,40.699796,-73.831199
+Subway,Deli,"9558 Queens Blvd (63rd Dr.), Rego Park, NY 11374",Rego Park,Rego Park,40.729928,-73.862925
+Subway,Deli,"8020 Jamaica Ave, Woodhaven, NY 11421",Woodhaven,Woodhaven,40.692155,-73.861606
+Subway,Deli,"13011 N Conduit Ave, South Ozone Park, NY 11420",South Ozone Park,South Ozone Park,40.667517,-73.809857
+Subway,Deli,"1518 College Point Blvd, College Point, NY 11356",College Point,College Point,40.78367,-73.846099
+Subway,Deli,"25919 Union Tpke, Queens, NY 11004",Queens,Floral Park,40.746896,-73.712637
+Subway,Deli,"251-05 Jamaica Ave, Bellerose, NY 11426",Bellerose,Bellerose,40.727176,-73.71403
+Subway,Deli,"13805 Queens Blvd (Main St), Briarwood, NY 11435",Briarwood,Briarwood,40.708863,-73.81826
+Subway,Deli,"6113 Springfield Blvd (LIE), Oakland Gardens, NY 11364",Oakland Gardens,Oakland Gardens,40.748618,-73.756184
+Subway,Deli,"21925 N Conduit Ave (Springfield Blvd), Springfield Gardens, NY 11413",Springfield Gardens,Brookville,40.666755,-73.756954
+Subway,Deli,"1807 Mott Ave, Far Rockaway, NY 11691",Far Rockaway,Far Rockaway,40.602663,-73.750188
+Subway,Deli,"6820 Rockaway Beach Blvd, Arverne, NY 11692",Arverne,Somerville,40.590538,-73.797429
+Subway,Deli,"25310A Hillside Ave, Bellerose, NY 11426",Bellerose,Floral Park,40.735749,-73.714098
+Subway,Deli,"20206 Hillside Ave (btw 202st & 204st), Hollis, NY 11423",Hollis,Holliswood,40.719793,-73.76148
+Subway,Deli,"17671 Union Tpke (at 177th St.), Fresh Meadows, NY 11366",Fresh Meadows,Hillcrest,40.726218,-73.791075
+Subway,Deli,"597 Bay St (Clifton Ave), Staten Island, NY 10304",Staten Island,Stapleton,40.627271,-74.075774
+Subway,Deli,"612 Forest Ave, Staten Island, NY 10310",Staten Island,West Brighton,40.629663,-74.109596
+Subway,Deli,"786A Port Richmond Ave, Staten Island, NY 10302",Staten Island,Elm Park,40.625313,-74.145229
+Subway,Deli,"1724 Victory Blvd (Winthrop), Staten Island, NY 10314",Staten Island,Castleton Corners,40.61285,-74.121177
+Subway,Deli,"86 Guyon Ave (North Railroad), Staten Island, NY 10306",Staten Island,Richmond Town,40.564561,-74.128156
+Subway,Deli,"528A Clarkson Ave, Brooklyn, NY 11203",Brooklyn,Wingate,40.655763,-73.942028
+Subway,Deli,"5107 Church Ave (E. 51 St), Brooklyn, NY 11203",Brooklyn,Rugby,40.65228,-73.929124
+Subway,Deli,"1351 Forest Ave (Forest Ave), Staten Island, NY 10302",Staten Island,Elm Park,40.625988,-74.134757
+Subway,Deli,"329 Sand Ln, Staten Island, NY 10305",Staten Island,Arrochar,40.591734,-74.067524
+Subway,Deli,"1750 Hylan Blvd (Seaview Ave), Staten Island, NY 10305",Staten Island,Dongan Hills,40.58615,-74.091977
+Subway,Deli,"690 Arthur Kill Rd, Staten Island, NY 10308",Staten Island,Greenridge,40.559438,-74.164314
+Subway,Deli,"2409 Richmond Ave, Staten Island, NY 10314",Staten Island,Heartland Village,40.588714,-74.166747
+Subway,Deli,"1650 Richmond Ave (Victory Blvd.), Staten Island, NY 10314",Staten Island,Bulls Head,40.608321,-74.162973
+Subway,Deli,"18 E 170th St, Bronx, NY 10452",Bronx,Mount Eden,40.839957,-73.917494
+Subway,Deli,"1842 E New York Ave, Brooklyn, NY 11207",Brooklyn,Broadway Junction,40.676319,-73.900559
+Subway,Deli,"578 W 125th St (Broadway), New York, NY 10027",Manhattan,Manhattanville,40.815329,-73.958202
+Subway,Deli,"563 Malcolm X Blvd, New York, NY 10037",Manhattan,Central Harlem,40.816532,-73.939397
+Subway,Deli,"2515 Boston Rd, Bronx, NY 10467",Bronx,Allerton,40.863743,-73.865201
+Subway,Deli,"38 W Kingsbridge Rd, Bronx, NY 10468",Bronx,Kingsbridge Heights,40.867665,-73.899189

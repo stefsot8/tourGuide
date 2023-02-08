@@ -1,3 +1,5 @@
+import json
+
 import pandas as pd
 import requests
 from neo4j import GraphDatabase
@@ -10,12 +12,12 @@ class Neo4j:
     def close(self):
         self.driver.close()
 
-    def print_greeting(self):
+    def save_to_db(self):
         with self.driver.session() as session:
-            greeting = session.write_transaction(self._create_and_return_greeting)
+            action = session.write_transaction(self.create_store)
 
     @staticmethod
-    def _create_and_return_greeting(tx):
+    def create_store(tx):
         result = tx.run("CREATE (a:Store)"
                         "SET a.name = $store_name, a.id = $store_id, a.type = $store_type,a.latitude = "
                         "$store_latitude,a.longitude = $store_longitude,a.address = $store_address,a.borough = "
@@ -85,6 +87,6 @@ if __name__ == '__main__':
             else:
                 store_borough = borough
             p += 1
-            greeter = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
-            greeter.print_greeting()
-            greeter.close()
+            helper = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
+            helper.save_to_db()
+            helper.close()

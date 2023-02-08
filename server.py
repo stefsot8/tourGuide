@@ -31,7 +31,6 @@ def homepage():
         location = geolocator.geocode(address)
         latitude = location.latitude
         longitude = location.longitude
-        print('The geograpical coordinate of New York City are {}, {}.'.format(latitude, longitude))
         # create map of New York using latitude and longitude values
         map_newyork = folium.Map(location=[latitude, longitude], zoom_start=11)
         # add markers to map
@@ -73,7 +72,6 @@ def searchpage():
         location = geolocator.geocode(address)
         latitude = location.latitude
         longitude = location.longitude
-        print('The geograpical coordinate of New York City are {}, {}.'.format(latitude, longitude))
         # create map of New York using latitude and longitude values
         map_newyork = folium.Map(location=[latitude, longitude], zoom_start=11)
         # add markers to map
