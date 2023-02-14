@@ -19,9 +19,9 @@ similarity = []
 def homepage():
     if request.method == 'POST':
         borough = request.form['boroughs']
-        order = 'match (n) where n.locality="' + borough + '"return distinct n.name, n.type,n.address, n.locality, ' \
+        order = 'match (n) where n.borough="' + borough + '"return distinct n.name, n.type,n.address, n.borough, ' \
                                                            'n.neighborhood, n.latitude, n.longitude '
-        db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
+        db_connector = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
         db_connector.print_results(order)
         db_connector.close()
 
@@ -43,7 +43,7 @@ def homepage():
                     [row[5], row[6]],
                     radius=5,
                     popup=label,
-                    color='red',
+                    color='green',
                     fill=True,
                     fill_color='#3186cc',
                     fill_opacity=0.7,
@@ -60,9 +60,9 @@ def homepage():
 def searchpage():
     if request.method == 'POST':
         storeName = request.form['storeName']
-        order = 'match (n) where n.name="' + storeName + '"return distinct n.name, n.type,n.address, n.locality, ' \
+        order = 'match (n) where n.name="' + storeName + '"return distinct n.name, n.type,n.address, n.borough, ' \
                                                            'n.neighborhood, n.latitude, n.longitude '
-        db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
+        db_connector = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
         db_connector.print_results(order)
         db_connector.close()
 
@@ -94,15 +94,16 @@ def searchpage():
         webbrowser.open(output_file, new=2)
         return render_template("page2.html", results=results)
 
+
 @app.route('/centrality', methods=['GET', 'POST'])
 def centralitypage():
     order1 = 'CALL gds.graph.project("myCentralityGraph","Store","Distance",{relationshipProperties:"name"})'
     order2 = 'CALL gds.pageRank.stream("myCentralityGraph") YIELD nodeId, score RETURN gds.util.asNode(nodeId).name ' \
              'AS name,gds.util.asNode(nodeId).type as type,gds.util.asNode(nodeId).address as address,' \
-             'gds.util.asNode(nodeId).neighborhood as neighborhood,gds.util.asNode(nodeId).locality as locality,' \
+             'gds.util.asNode(nodeId).neighborhood as neighborhood,gds.util.asNode(nodeId).borough as borough,' \
              'gds.util.asNode(nodeId).latitude as latitude,gds.util.asNode(nodeId).longitude as longitude,score ORDER ' \
              'BY score DESC, name ASC limit 500'
-    db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
+    db_connector = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
     try:
         db_connector.centrality(order1)
     except:
@@ -128,7 +129,7 @@ def centralitypage():
             [row[5], row[6]],
             radius=7,
             popup=label,
-            color='red',
+            color='blue',
             fill=True,
             fill_color='#3186cc',
             fill_opacity=0.7,
@@ -146,8 +147,8 @@ def similaritypage():
     order2 = 'CALL gds.nodeSimilarity.stream("mySimilarityGraph") YIELD node1, node2, similarity RETURN ' \
              'gds.util.asNode(node1).name AS Store1,gds.util.asNode(node1).address AS Address1, gds.util.asNode(' \
              'node2).name AS Store2,gds.util.asNode(node2).address AS Address2,gds.util.asNode(node1).type AS Type,' \
-             'similarity,gds.util.asNode(node1).locality AS Locality ORDER BY similarity DESCENDING, Store1, Store2 limit 1000 '
-    db_connector = Neo4j("bolt://localhost:7687", "neo4j", "pass123")
+             'similarity,gds.util.asNode(node1).borough AS borough ORDER BY similarity DESCENDING, Store1, Store2 limit 1000 '
+    db_connector = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
     try:
         db_connector.similarity(order1)
     except:
@@ -174,15 +175,15 @@ class Neo4j:
 
     def print_results(self, order):
         with self.driver.session() as session:
-            session.write_transaction(self.db_results, order)
+            session.execute_write(self.db_results, order)
 
     def centrality(self, order):
         with self.driver.session() as session:
-            session.write_transaction(self.centrality_results, order)
+            session.execute_write(self.centrality_results, order)
 
     def similarity(self, order):
         with self.driver.session() as session:
-            session.write_transaction(self.similarity_results, order)
+            session.execute_write(self.similarity_results, order)
 
     @staticmethod
     def db_results(tx, order):
@@ -216,4 +217,4 @@ class Neo4j:
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=8080, debug=True)
