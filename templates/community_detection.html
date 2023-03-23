@@ -1,5 +1,5 @@
 {% block container %}
-    <title>Centrality Table</title>
+    <title>Community Detection Table</title>
     <body style="background-color:LightGray;">
     <div class="top-pad">
         <style>
@@ -32,9 +32,9 @@
                 Borough
             </th>
             <th>
-                Centrality Value
+                Community Detection Value
             </th>
-            {% for your_list_element in cent_results %}
+            {% for your_list_element in com_results %}
                 <tr>
                     <td>
                         {{ your_list_element[0] }}

@@ -25,10 +25,32 @@
     <br>
     <input type="submit" ; value="Continue">
     <br><br>
-    <input type="submit" value="View Top-grossing Stores" formaction="/centrality">
+    <div style="width: 50%; float:left;">
+    <label for="centrality_algorithm">Choose a centrality algorithm:</label>
+    <select name="centrality_algorithm" id="centrality_algorithm">
+        <option value="pageRank">Page Rank</option>
+        <option value="articleRank">Article Rank</option>
+        <option value="eigenvector">Eigenvector Centrality</option>
+        <option value="betweenness">Betweenness Centrality</option>
+        <option value="degree">Degree Centrality</option>
+    </select>
+    <input type="submit" value="Use selected centrality algorithm" formaction="/centrality">
+    <br>
+    <h2>OR</h2>
+    <label for="community_detection_algorithm">Choose a community detection algorithm:</label>
+    <select name="community_detection_algorithm" id="community_detection_algorithm">
+        <option value="louvain,communityId">Louvain</option>
+        <option value="labelPropagation,communityId">Label Propagation</option>
+        <option value="wcc,componentId">Weakly Connected Components</option>
+        <option value="triangleCount,triangleCount">Triangle Count</option>
+        <option value="localClusteringCoefficient,localClusteringCoefficient">Local Clustering Coefficient</option>
+    </select>
+    <input type="submit" value="Use selected community detection algorithm" formaction="/community_detection">
     <br><br>
+    </div>
+    <div style="width: 50%; float:left;">
     <input type="submit" value="Find Similar Stores" formaction="/similarity">
-    <br><br>
+    <br>
     <h2>OR</h2>
 </form>
 <form method="post">
@@ -36,5 +58,6 @@
     <input type="text" name="storeName" id="storeName" required>
     <input type="submit" value="Search" formaction="/search">
 </form>
+</div>
 </body>
 </html>

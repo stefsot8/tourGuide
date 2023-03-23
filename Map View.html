@@ -11,41 +11,42 @@
     
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
     <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
     
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_7f5dc1f2e7ea4f0d148d95885e8eb853 {
+                #map_5a1230cea5586a78fef2c48d2bb75f9b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
                     left: 0.0%;
                     top: 0.0%;
                 }
+                .leaflet-container { font-size: 1rem; }
             </style>
         
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_7f5dc1f2e7ea4f0d148d95885e8eb853" ></div>
+            <div class="folium-map" id="map_5a1230cea5586a78fef2c48d2bb75f9b" ></div>
         
 </body>
 <script>
     
     
-            var map_7f5dc1f2e7ea4f0d148d95885e8eb853 = L.map(
-                "map_7f5dc1f2e7ea4f0d148d95885e8eb853",
+            var map_5a1230cea5586a78fef2c48d2bb75f9b = L.map(
+                "map_5a1230cea5586a78fef2c48d2bb75f9b",
                 {
                     center: [40.7127281, -74.0060152],
                     crs: L.CRS.EPSG3857,
@@ -59,217 +60,217 @@
 
         
     
-            var tile_layer_642ee2f6e660bb884f490049882f8e48 = L.tileLayer(
+            var tile_layer_8643864204620b77924899d71902f82a = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_7f5dc1f2e7ea4f0d148d95885e8eb853);
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_5a1230cea5586a78fef2c48d2bb75f9b);
         
     
-            var circle_marker_da5eaa3b8a84b810766b4edce6eccdae = L.circleMarker(
-                [40.598327, -74.180834],
+            var circle_marker_ca57f5810c171206328af1bd8691d1fe = L.circleMarker(
+                [40.738091, -73.990373],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
-            ).addTo(map_7f5dc1f2e7ea4f0d148d95885e8eb853);
+            ).addTo(map_5a1230cea5586a78fef2c48d2bb75f9b);
         
     
-        var popup_ed5ce41cab21e5724f1c5bc9150695c2 = L.popup({"maxWidth": "100%"});
+        var popup_1a0d96629ba04d1b0849d21fcf1eafe8 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_23f604b9022edde8ffe41cdabbccb8ca = $(`<div id="html_23f604b9022edde8ffe41cdabbccb8ca" style="width: 100.0%; height: 100.0%;">Penske Truck Rental, Mover, 3735 Victory Blvd, Staten Island, NY 10314</div>`)[0];
-                popup_ed5ce41cab21e5724f1c5bc9150695c2.setContent(html_23f604b9022edde8ffe41cdabbccb8ca);
+                var html_2b8630d30f491adef3b65d067a0e69a4 = $(`<div id="html_2b8630d30f491adef3b65d067a0e69a4" style="width: 100.0%; height: 100.0%;">Ole &amp; Steen, Bakery, 873 Broadway (at E 18th St), New York, NY 10003</div>`)[0];
+                popup_1a0d96629ba04d1b0849d21fcf1eafe8.setContent(html_2b8630d30f491adef3b65d067a0e69a4);
             
         
 
-        circle_marker_da5eaa3b8a84b810766b4edce6eccdae.bindPopup(popup_ed5ce41cab21e5724f1c5bc9150695c2)
+        circle_marker_ca57f5810c171206328af1bd8691d1fe.bindPopup(popup_1a0d96629ba04d1b0849d21fcf1eafe8)
         ;
 
         
     
     
-            var circle_marker_d3cf68045c53ee42c84a31f0296db02d = L.circleMarker(
-                [40.598327, -74.180834],
+            var circle_marker_661244f55e15b936ca7c31b8de6875db = L.circleMarker(
+                [40.738172, -73.991337],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
-            ).addTo(map_7f5dc1f2e7ea4f0d148d95885e8eb853);
+            ).addTo(map_5a1230cea5586a78fef2c48d2bb75f9b);
         
     
-        var popup_eff4ffb1bb3acde550ae0658769ace43 = L.popup({"maxWidth": "100%"});
+        var popup_a33de9d2b338e2396f4c3d635a4dcb43 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_bbb8da06a4d98a31dcf5b23b00a6c323 = $(`<div id="html_bbb8da06a4d98a31dcf5b23b00a6c323" style="width: 100.0%; height: 100.0%;">Travis Auto Spa, Car Wash and Detail, 3735 Victory Blvd, Staten Island, NY 10314</div>`)[0];
-                popup_eff4ffb1bb3acde550ae0658769ace43.setContent(html_bbb8da06a4d98a31dcf5b23b00a6c323);
+                var html_f3e467e84743d96511765a8374f96781 = $(`<div id="html_f3e467e84743d96511765a8374f96781" style="width: 100.0%; height: 100.0%;">Sweetgreen, Restaurant, 8 E 18th St, New York, NY 10003</div>`)[0];
+                popup_a33de9d2b338e2396f4c3d635a4dcb43.setContent(html_f3e467e84743d96511765a8374f96781);
             
         
 
-        circle_marker_d3cf68045c53ee42c84a31f0296db02d.bindPopup(popup_eff4ffb1bb3acde550ae0658769ace43)
+        circle_marker_661244f55e15b936ca7c31b8de6875db.bindPopup(popup_a33de9d2b338e2396f4c3d635a4dcb43)
         ;
 
         
     
     
-            var circle_marker_bf49fb9641f7718c3a39cb2e9ce3f937 = L.circleMarker(
-                [40.599793, -74.178546],
+            var circle_marker_d5955e082894ca42830e2fb06ee1c2e6 = L.circleMarker(
+                [40.737789, -73.989575],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
-            ).addTo(map_7f5dc1f2e7ea4f0d148d95885e8eb853);
+            ).addTo(map_5a1230cea5586a78fef2c48d2bb75f9b);
         
     
-        var popup_7897bdacf228a158c895bebcd0eb4fbf = L.popup({"maxWidth": "100%"});
+        var popup_902b4bd322ec50413095e061fd7c01c3 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_e2de6a4f42ebfb5976514c94829ed3c5 = $(`<div id="html_e2de6a4f42ebfb5976514c94829ed3c5" style="width: 100.0%; height: 100.0%;">Mid Island Little League, Sports Club, 3665 Victory Blvd, Staten Island, NY 10314</div>`)[0];
-                popup_7897bdacf228a158c895bebcd0eb4fbf.setContent(html_e2de6a4f42ebfb5976514c94829ed3c5);
+                var html_67e7c4109d0dd1797fa7d0d983a1eb2a = $(`<div id="html_67e7c4109d0dd1797fa7d0d983a1eb2a" style="width: 100.0%; height: 100.0%;">ABC Kitchen, American Restaurant, 35 E 18th St (btwn Broadway &amp; Park Ave S), New York, NY 10003</div>`)[0];
+                popup_902b4bd322ec50413095e061fd7c01c3.setContent(html_67e7c4109d0dd1797fa7d0d983a1eb2a);
             
         
 
-        circle_marker_bf49fb9641f7718c3a39cb2e9ce3f937.bindPopup(popup_7897bdacf228a158c895bebcd0eb4fbf)
+        circle_marker_d5955e082894ca42830e2fb06ee1c2e6.bindPopup(popup_902b4bd322ec50413095e061fd7c01c3)
         ;
 
         
     
     
-            var circle_marker_ca8e8faa3fa7b9267215e799914daad0 = L.circleMarker(
-                [40.59894, -74.181993],
+            var circle_marker_1006150b9fe7246d8b6cd47366b7836d = L.circleMarker(
+                [40.7374, -73.987988],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
-            ).addTo(map_7f5dc1f2e7ea4f0d148d95885e8eb853);
+            ).addTo(map_5a1230cea5586a78fef2c48d2bb75f9b);
         
     
-        var popup_471d7c887805f57a5bcb1c4a66a78701 = L.popup({"maxWidth": "100%"});
+        var popup_aa12d2a18d0a1e698c42576792a42be5 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_05f5e42e01268480ab9968e6f3f9a963 = $(`<div id="html_05f5e42e01268480ab9968e6f3f9a963" style="width: 100.0%; height: 100.0%;">Mayhem Custom Motorcycles, Motorcycle Dealership, 98 Wakefield Ave, Staten Island, NY 10314</div>`)[0];
-                popup_471d7c887805f57a5bcb1c4a66a78701.setContent(html_05f5e42e01268480ab9968e6f3f9a963);
+                var html_05247ae02fa9cf0a155d127811e2d9dd = $(`<div id="html_05247ae02fa9cf0a155d127811e2d9dd" style="width: 100.0%; height: 100.0%;">Oceans, Wine Bar, 233 Park Ave S, New York, NY 10003</div>`)[0];
+                popup_aa12d2a18d0a1e698c42576792a42be5.setContent(html_05247ae02fa9cf0a155d127811e2d9dd);
             
         
 
-        circle_marker_ca8e8faa3fa7b9267215e799914daad0.bindPopup(popup_471d7c887805f57a5bcb1c4a66a78701)
+        circle_marker_1006150b9fe7246d8b6cd47366b7836d.bindPopup(popup_aa12d2a18d0a1e698c42576792a42be5)
         ;
 
         
     
     
-            var circle_marker_676ac2dd586266361c83aa38fd81e28e = L.circleMarker(
-                [40.597879, -74.181424],
+            var circle_marker_ba713aaec453dfc3d4351e4ab6acd8c4 = L.circleMarker(
+                [40.737386, -73.990477],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
-            ).addTo(map_7f5dc1f2e7ea4f0d148d95885e8eb853);
+            ).addTo(map_5a1230cea5586a78fef2c48d2bb75f9b);
         
     
-        var popup_311f9ca9b034d7d93b00e1d3fb547aed = L.popup({"maxWidth": "100%"});
+        var popup_f8675c2f664c3becc32775ef89e43f05 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_d79689b8028a6cbe0f6c452272be9894 = $(`<div id="html_d79689b8028a6cbe0f6c452272be9894" style="width: 100.0%; height: 100.0%;">Mother Mousse, Bakery, 3767 Victory Blvd, Staten Island, NY 10314</div>`)[0];
-                popup_311f9ca9b034d7d93b00e1d3fb547aed.setContent(html_d79689b8028a6cbe0f6c452272be9894);
+                var html_c6915c982014d3200a734621a31e5ad6 = $(`<div id="html_c6915c982014d3200a734621a31e5ad6" style="width: 100.0%; height: 100.0%;">Venchi, Ice Cream Parlor, 861 Broadway (btwn E 17th &amp; E 18th St), New York, NY 10003</div>`)[0];
+                popup_f8675c2f664c3becc32775ef89e43f05.setContent(html_c6915c982014d3200a734621a31e5ad6);
             
         
 
-        circle_marker_676ac2dd586266361c83aa38fd81e28e.bindPopup(popup_311f9ca9b034d7d93b00e1d3fb547aed)
+        circle_marker_ba713aaec453dfc3d4351e4ab6acd8c4.bindPopup(popup_f8675c2f664c3becc32775ef89e43f05)
         ;
 
         
     
     
-            var circle_marker_546fab95583dc2b39f3a294ce01c6aa7 = L.circleMarker(
-                [40.542521, -74.200255],
+            var circle_marker_e3f45214594c63584c27ceb498d5580f = L.circleMarker(
+                [40.738692, -73.990091],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
-            ).addTo(map_7f5dc1f2e7ea4f0d148d95885e8eb853);
+            ).addTo(map_5a1230cea5586a78fef2c48d2bb75f9b);
         
     
-        var popup_61e8fd1ec2a47d2b35956fb4fb418afa = L.popup({"maxWidth": "100%"});
+        var popup_6b94155bf61e7e4147327668db4194b2 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_a74fe0569dffe43f24d3620ba047e658 = $(`<div id="html_a74fe0569dffe43f24d3620ba047e658" style="width: 100.0%; height: 100.0%;">Empire State Mechanical, Heating, Ventilating and Air Conditioning Contractor, 1070 Woodrow Rd, Staten Island, NY 10312</div>`)[0];
-                popup_61e8fd1ec2a47d2b35956fb4fb418afa.setContent(html_a74fe0569dffe43f24d3620ba047e658);
+                var html_31daebb243849b01f111581b50a57b48 = $(`<div id="html_31daebb243849b01f111581b50a57b48" style="width: 100.0%; height: 100.0%;">Fishs Eddy, Housewares Store, 889 Broadway (btwn E 19th &amp; E 20th St), New York, NY 10003</div>`)[0];
+                popup_6b94155bf61e7e4147327668db4194b2.setContent(html_31daebb243849b01f111581b50a57b48);
             
         
 
-        circle_marker_546fab95583dc2b39f3a294ce01c6aa7.bindPopup(popup_61e8fd1ec2a47d2b35956fb4fb418afa)
+        circle_marker_e3f45214594c63584c27ceb498d5580f.bindPopup(popup_6b94155bf61e7e4147327668db4194b2)
         ;
 
         
     
     
-            var circle_marker_a47d5ad67a059597ee9577bb0852f8a6 = L.circleMarker(
-                [40.596563, -74.182238],
+            var circle_marker_7e4aff495e8d57c56d9599c2a53e1c78 = L.circleMarker(
+                [40.737614, -73.989975],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
-            ).addTo(map_7f5dc1f2e7ea4f0d148d95885e8eb853);
+            ).addTo(map_5a1230cea5586a78fef2c48d2bb75f9b);
         
     
-        var popup_30b4251427b076364940752fa140de31 = L.popup({"maxWidth": "100%"});
+        var popup_7323930d0f9cd854720d77f5db541733 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_55f869ef8c35140faf97902344c8ccba = $(`<div id="html_55f869ef8c35140faf97902344c8ccba" style="width: 100.0%; height: 100.0%;">Greenbelt Native Plant Center, Government Department / Agency, 3808 Victory Blvd, Staten Island, NY 10314</div>`)[0];
-                popup_30b4251427b076364940752fa140de31.setContent(html_55f869ef8c35140faf97902344c8ccba);
+                var html_10516c070e9fcc30429269dfedd9cdf6 = $(`<div id="html_10516c070e9fcc30429269dfedd9cdf6" style="width: 100.0%; height: 100.0%;">Fresh, Cosmetics Store, 872 Broadway (at E 18th St.), New York, NY 10003</div>`)[0];
+                popup_7323930d0f9cd854720d77f5db541733.setContent(html_10516c070e9fcc30429269dfedd9cdf6);
             
         
 
-        circle_marker_a47d5ad67a059597ee9577bb0852f8a6.bindPopup(popup_30b4251427b076364940752fa140de31)
+        circle_marker_7e4aff495e8d57c56d9599c2a53e1c78.bindPopup(popup_7323930d0f9cd854720d77f5db541733)
         ;
 
         
     
     
-            var circle_marker_7e3a2eaee38f51e2d51db46f7aa644b0 = L.circleMarker(
-                [40.624931, -74.149177],
+            var circle_marker_03574eab1655bd0607283b02e46fe61d = L.circleMarker(
+                [40.737303, -73.991565],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
-            ).addTo(map_7f5dc1f2e7ea4f0d148d95885e8eb853);
+            ).addTo(map_5a1230cea5586a78fef2c48d2bb75f9b);
         
     
-        var popup_55d2b91a6aa0adbf2a8b1176e4080cea = L.popup({"maxWidth": "100%"});
+        var popup_a701de316d1e728f562e3d6c0c0cf686 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_17afbed37b1108d607ed1da4098e5290 = $(`<div id="html_17afbed37b1108d607ed1da4098e5290" style="width: 100.0%; height: 100.0%;">Bocce Courts at Markham Playground, Park, Willowbrook Parkway (Willowbrook Parkway, Forest Avenue &amp; Houston Stree), Staten Island, NY 10303</div>`)[0];
-                popup_55d2b91a6aa0adbf2a8b1176e4080cea.setContent(html_17afbed37b1108d607ed1da4098e5290);
+                var html_9589f58eb3be62d569e7f5623b98117e = $(`<div id="html_9589f58eb3be62d569e7f5623b98117e" style="width: 100.0%; height: 100.0%;">Journelle, Lingerie Store, 14 E 17th St (at 5th Ave.), New York, NY 10003</div>`)[0];
+                popup_a701de316d1e728f562e3d6c0c0cf686.setContent(html_9589f58eb3be62d569e7f5623b98117e);
             
         
 
-        circle_marker_7e3a2eaee38f51e2d51db46f7aa644b0.bindPopup(popup_55d2b91a6aa0adbf2a8b1176e4080cea)
+        circle_marker_03574eab1655bd0607283b02e46fe61d.bindPopup(popup_a701de316d1e728f562e3d6c0c0cf686)
         ;
 
         
     
     
-            var circle_marker_670270f767cc7931e628b04b971faa47 = L.circleMarker(
-                [40.624693, -74.148078],
+            var circle_marker_0a06e9bc90b206053f4f75f9ee601e19 = L.circleMarker(
+                [40.737506, -73.990045],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
-            ).addTo(map_7f5dc1f2e7ea4f0d148d95885e8eb853);
+            ).addTo(map_5a1230cea5586a78fef2c48d2bb75f9b);
         
     
-        var popup_db98efa25230471bba8fcd0d3316ea8f = L.popup({"maxWidth": "100%"});
+        var popup_9615a9372169edc19e8b3a380c6d5720 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_f646015628bf0970862f1c1450ba0f7b = $(`<div id="html_f646015628bf0970862f1c1450ba0f7b" style="width: 100.0%; height: 100.0%;">Carvel, Ice Cream Parlor, 1780 Forest Ave, Staten Island, NY 10303</div>`)[0];
-                popup_db98efa25230471bba8fcd0d3316ea8f.setContent(html_f646015628bf0970862f1c1450ba0f7b);
+                var html_906101fbf420278580d33bf6e3ce2916 = $(`<div id="html_906101fbf420278580d33bf6e3ce2916" style="width: 100.0%; height: 100.0%;">Juice Generation - Union Square, Juice Bar, 28 E 18th St (at Broadway), New York, NY 10003</div>`)[0];
+                popup_9615a9372169edc19e8b3a380c6d5720.setContent(html_906101fbf420278580d33bf6e3ce2916);
             
         
 
-        circle_marker_670270f767cc7931e628b04b971faa47.bindPopup(popup_db98efa25230471bba8fcd0d3316ea8f)
+        circle_marker_0a06e9bc90b206053f4f75f9ee601e19.bindPopup(popup_9615a9372169edc19e8b3a380c6d5720)
         ;
 
         
     
     
-            var circle_marker_4f3a0c3e81c7e35a27340b9468227e8a = L.circleMarker(
-                [40.624473, -74.148243],
+            var circle_marker_ee2205d2d46934a436109ac208b87291 = L.circleMarker(
+                [40.737591, -73.992886],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
-            ).addTo(map_7f5dc1f2e7ea4f0d148d95885e8eb853);
+            ).addTo(map_5a1230cea5586a78fef2c48d2bb75f9b);
         
     
-        var popup_70b89e28522d6e40431bbbe2ee13434f = L.popup({"maxWidth": "100%"});
+        var popup_ae8cf1599920117188706213b04a0c34 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_c101b79e6f98de23fb6ce2c97bb3d5d5 = $(`<div id="html_c101b79e6f98de23fb6ce2c97bb3d5d5" style="width: 100.0%; height: 100.0%;">IHOP, American Restaurant, 935 Richmond Ave (at Forest Ave), Staten Island, NY 10314</div>`)[0];
-                popup_70b89e28522d6e40431bbbe2ee13434f.setContent(html_c101b79e6f98de23fb6ce2c97bb3d5d5);
+                var html_14c58babb9b523966cbee1138734d17a = $(`<div id="html_14c58babb9b523966cbee1138734d17a" style="width: 100.0%; height: 100.0%;">Camp, Toy / Game Store, 110 5th Ave, New York, NY 10011</div>`)[0];
+                popup_ae8cf1599920117188706213b04a0c34.setContent(html_14c58babb9b523966cbee1138734d17a);
             
         
 
-        circle_marker_4f3a0c3e81c7e35a27340b9468227e8a.bindPopup(popup_70b89e28522d6e40431bbbe2ee13434f)
+        circle_marker_ee2205d2d46934a436109ac208b87291.bindPopup(popup_ae8cf1599920117188706213b04a0c34)
         ;
 
         

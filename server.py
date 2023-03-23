@@ -11,8 +11,10 @@ app = Flask(__name__)
 results = []
 cent_results = []
 sim_results = []
+com_results = []
 centrality = []
 similarity = []
+community_detection = []
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -21,7 +23,7 @@ def homepage():
         borough = request.form['boroughs']
         order = 'match (n) where n.borough="' + borough + '"return distinct n.name, n.type,n.address, n.borough, ' \
                                                            'n.neighborhood, n.latitude, n.longitude '
-        db_connector = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
+        db_connector = Neo4j("bolt://localhost:7687", "neo4j", "ss132333")
         db_connector.print_results(order)
         db_connector.close()
 
@@ -62,7 +64,7 @@ def searchpage():
         storeName = request.form['storeName']
         order = 'match (n) where n.name="' + storeName + '"return distinct n.name, n.type,n.address, n.borough, ' \
                                                            'n.neighborhood, n.latitude, n.longitude '
-        db_connector = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
+        db_connector = Neo4j("bolt://localhost:7687", "neo4j", "ss132333")
         db_connector.print_results(order)
         db_connector.close()
 
@@ -97,13 +99,14 @@ def searchpage():
 
 @app.route('/centrality', methods=['GET', 'POST'])
 def centralitypage():
+    centrality_algorithm = request.form['centrality_algorithm']
     order1 = 'CALL gds.graph.project("myCentralityGraph","Store","Distance",{relationshipProperties:"name"})'
-    order2 = 'CALL gds.pageRank.stream("myCentralityGraph") YIELD nodeId, score RETURN gds.util.asNode(nodeId).name ' \
+    order2 = 'CALL gds.'+centrality_algorithm+'.stream("myCentralityGraph") YIELD nodeId, score RETURN gds.util.asNode(nodeId).name ' \
              'AS name,gds.util.asNode(nodeId).type as type,gds.util.asNode(nodeId).address as address,' \
              'gds.util.asNode(nodeId).neighborhood as neighborhood,gds.util.asNode(nodeId).borough as borough,' \
              'gds.util.asNode(nodeId).latitude as latitude,gds.util.asNode(nodeId).longitude as longitude,score ORDER ' \
              'BY score DESC, name ASC limit 500'
-    db_connector = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
+    db_connector = Neo4j("bolt://localhost:7687", "neo4j", "ss132333")
     try:
         db_connector.centrality(order1)
     except:
@@ -139,6 +142,30 @@ def centralitypage():
     webbrowser.open(output_file, new=2)
     return render_template('centrality.html', cent_results=centrality[:10])
 
+@app.route('/community_detection', methods=['GET', 'POST'])
+def communitypage():
+    community_detection_algorithm = request.form['community_detection_algorithm']
+    community_detection_algorithm_keys = community_detection_algorithm.split(',')
+    order1 = 'CALL gds.graph.project("myCommunityDetectionGraph","Store",{Distance: {orientation: "UNDIRECTED"}},{relationshipProperties: "name"})'
+    order2 = 'CALL gds.'+community_detection_algorithm_keys[0]+'.stream("myCommunityDetectionGraph") YIELD nodeId, '+community_detection_algorithm_keys[1]+' RETURN gds.util.asNode(nodeId).name ' \
+             'AS name,gds.util.asNode(nodeId).type as type,gds.util.asNode(nodeId).address as address,' \
+             'gds.util.asNode(nodeId).neighborhood as neighborhood,gds.util.asNode(nodeId).borough as borough,' \
+             'gds.util.asNode(nodeId).latitude as latitude,gds.util.asNode(nodeId).longitude as longitude,'+community_detection_algorithm_keys[1]+' ORDER ' \
+             'BY '+community_detection_algorithm_keys[1]+' DESC, name ASC'
+    db_connector = Neo4j("bolt://localhost:7687", "neo4j", "ss132333")
+    try:
+        db_connector.community_detection(order1)
+    except:
+        pass
+    db_connector.community_detection(order2)
+    db_connector.close()
+    borough = (request.form['boroughs'])
+    community_detection.clear()
+    for row in com_results:
+        if row[4] == borough:
+            community_detection.append(row)
+    return render_template('community_detection.html', com_results=community_detection)
+
 
 @app.route('/similarity', methods=['GET', 'POST'])
 def similaritypage():
@@ -148,7 +175,7 @@ def similaritypage():
              'gds.util.asNode(node1).name AS Store1,gds.util.asNode(node1).address AS Address1, gds.util.asNode(' \
              'node2).name AS Store2,gds.util.asNode(node2).address AS Address2,gds.util.asNode(node1).type AS Type,' \
              'similarity,gds.util.asNode(node1).borough AS borough ORDER BY similarity DESCENDING, Store1, Store2 limit 1000 '
-    db_connector = Neo4j("bolt://localhost:7687", "neo4j", "Ss132333")
+    db_connector = Neo4j("bolt://localhost:7687", "neo4j", "ss132333")
     try:
         db_connector.similarity(order1)
     except:
@@ -181,6 +208,10 @@ class Neo4j:
         with self.driver.session() as session:
             session.execute_write(self.centrality_results, order)
 
+    def community_detection(self, order):
+        with self.driver.session() as session:
+            session.execute_write(self.community_detection_results, order)
+
     def similarity(self, order):
         with self.driver.session() as session:
             session.execute_write(self.similarity_results, order)
@@ -204,6 +235,13 @@ class Neo4j:
         cent_results.clear()
         for line in cent_result:
             cent_results.append(line)
+
+    @staticmethod
+    def community_detection_results(tx, order):
+        com_result = tx.run(order)
+        com_results.clear()
+        for line in com_result:
+            com_results.append(line)
 
     @staticmethod
     def similarity_results(tx, order):
